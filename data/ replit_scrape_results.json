@@ -1,0 +1,26 @@
+[
+    {
+      "url": "https://all-in-one-bot-with-dashboard--mexican69.repl.co/",
+      "score": 12,
+      "category": "serious",
+      "signals": ["login", "dashboard", "many_js_files", "uses_react", "large_html"],
+      "assets": {
+        "js": 14,
+        "css": 6,
+        "images": 20,
+        "html_size": 58231
+      }
+    },
+    {
+      "url": "https://fun-game--dunce.repl.co/",
+      "score": 2,
+      "category": "toy",
+      "signals": ["game"],
+      "assets": {
+        "js": 1,
+        "css": 0,
+        "images": 3,
+        "html_size": 4210
+      }
+    }
+  ]

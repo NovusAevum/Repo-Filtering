@@ -1,0 +1,12 @@
+[
+  {
+    "repo_name": "devX/fullstack-saas",
+    "url": "https://github.com/devX/fullstack-saas",
+    "stars": 9200,
+    "forks": 2100,
+    "language": "TypeScript",
+    "description": "Enterprise SaaS boilerplate with billing, auth, analytics.",
+    "last_updated": "2025-09-01",
+    "topics": ["saas", "production", "enterprise", "typescript"]
+  }
+]

@@ -1,0 +1,17 @@
+import os, requests
+
+SERP_API_KEY = os.environ["SERPAPI_API_KEY"]
+
+def serpapi_search(query, num=20):
+    url = "https://serpapi.com/search"
+    params = {
+        "engine": "google",
+        "q": query,
+        "api_key": SERP_API_KEY,
+        "num": num
+    }
+    res = requests.get(url, params=params).json()
+    return [r["link"] for r in res.get("organic_results", []) if "repl.co" in r.get("link","")]
+
+apps = serpapi_search('site:repl.co ("login" OR "dashboard" OR "api" OR "game")', num=20)
+print(apps)

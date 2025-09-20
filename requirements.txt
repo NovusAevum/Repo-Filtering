@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+googlesearch-python
+aiohttp
+Flask
+Flask-CORS
+Flask-SocketIO
+trufflehog
+bandit
+python-dotenv

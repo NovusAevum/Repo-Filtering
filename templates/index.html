@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replit/GitHub Finder</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        .container { max-width: 1200px; margin: auto; }
+        .form-container { margin-bottom: 2em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Replit/GitHub Finder</h1>
+        <div class="form-container">
+            <form method="POST">
+                <fieldset>
+                    <legend>Run a new search</legend>
+                    <p>
+                        <label for="search_type">Search Type:</label>
+                        <select name="search_type" id="search_type">
+                            <option value="replit-find">Replit Find</option>
+                            <option value="github-search">GitHub Search</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="query">Query:</label>
+                        <input type="text" name="query" id="query" size="50" placeholder="Enter search query or leave blank for replit-find with dorks.txt">
+                    </p>
+                    <p>
+                        <input type="submit" value="Run Search">
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+
+        <h2>Found Repositories</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Repo URL</th>
+                    <th>Score</th>
+                    <th>Category</th>
+                    <th>Stars</th>
+                    <th>Commits</th>
+                    <th>Contributors</th>
+                    <th>Secrets</th>
+                    <th>Vulnerabilities</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for repo in repos %}
+                <tr>
+                    <td><a href="{{ repo.repo_url }}" target="_blank">{{ repo.repo_url }}</a></td>
+                    <td>{{ repo.score }}</td>
+                    <td>{{ repo.category }}</td>
+                    <td>{{ repo.stars }}</td>
+                    <td>{{ repo.commits }}</td>
+                    <td>{{ repo.contributors }}</td>
+                    <td>{{ repo.trufflehog_findings }}</td>
+                    <td>{{ repo.bandit_findings }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
