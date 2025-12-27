@@ -28,7 +28,9 @@ fi
 
 # Install Node.js dependencies
 echo "📥 Installing Node.js dependencies..."
+cd frontend
 npm install
+cd ..
 
 # Start backend in background
 echo "🖥️  Starting Flask backend..."
@@ -40,8 +42,10 @@ sleep 3
 
 # Start frontend
 echo "🌐 Starting React frontend..."
+cd frontend
 npm run dev &
 FRONTEND_PID=$!
+cd ..
 
 echo "✅ Application started successfully!"
 echo "🌐 Frontend: http://localhost:3000"

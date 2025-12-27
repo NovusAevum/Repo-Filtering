@@ -113,11 +113,20 @@ def get_repositories_paginated(page: int = 1, per_page: int = 20, sort: str = '-
         
         # Build ORDER BY clause
         order_by = "ORDER BY score DESC"  # default
+        allowed_sort_fields = {
+            'stars', 'forks', 'commits', 'contributors', 'score',
+            'readme_len', 'total_files', 'total_lines',
+            'trufflehog_findings', 'bandit_findings', 'last_processed'
+        }
+
         if sort.startswith('-'):
             field = sort[1:]
-            order_by = f"ORDER BY {field} DESC"
+            if field in allowed_sort_fields:
+                order_by = f"ORDER BY {field} DESC"
         elif sort:
-            order_by = f"ORDER BY {sort} ASC"
+            field = sort
+            if field in allowed_sort_fields:
+                order_by = f"ORDER BY {field} ASC"
         
         # Get total count
         count_sql = f"SELECT COUNT(*) FROM repositories {where_clause}"
