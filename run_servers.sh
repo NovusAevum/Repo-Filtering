@@ -35,8 +35,10 @@ sleep 5
 
 echo "🎨 Starting Frontend Server (Vite)..."
 # Start frontend server
-npm run dev > logs/frontend.log 2>&1 &
+cd frontend
+npm run dev > ../logs/frontend.log 2>&1 &
 FRONTEND_PID=$!
+cd ..
 
 # Wait for frontend to start
 sleep 3
